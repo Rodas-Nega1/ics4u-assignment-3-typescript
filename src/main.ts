@@ -20,6 +20,7 @@ try {
   const sideInputC = prompt('Enter side C (cm): ')
   const sideC = parseFloat(sideInputC)
 
+  // output
   if (sideA <= 0 || sideB <= 0 || sideC <= 0) {
     console.log('\nThat is an invalid number.')
   } else if (isNaN(sideA) || isNaN(sideB) || isNaN(sideC)) {
