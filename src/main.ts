@@ -57,7 +57,7 @@ try {
     console.log(`\nHeight C is ${userTriangle.getHeightC()} cm.`)
 
     userTriangle.incircleRadius()
-    console.log(`\nThe incircle is ${userTriangle.getInradius()} cm.`)
+    console.log(`\nThe incircle radius is ${userTriangle.getInradius()} cm.`)
 
     userTriangle.circumcircleArea(sideA, sideB, sideC)
     console.log(
