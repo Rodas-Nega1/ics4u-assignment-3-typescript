@@ -55,9 +55,13 @@ class Triangle {
     this.perimeter = sideA + sideB + sideC
   }
 
+  // setter method for semiperimeter
+  triangleSemiperimeter(sideA: number, sideB: number, sideC: number): void {
+    this.semiperimeter = (sideA + sideB + sideC) / 2
+  }
+
   // setter method for triangle area using Heron's formula
   triangleArea(sideA: number, sideB: number, sideC: number): void {
-    this.semiperimeter = (sideA + sideB + sideC) / 2
     this.area = Math.sqrt(
       this.semiperimeter *
         (this.semiperimeter - sideA) *
@@ -106,6 +110,11 @@ class Triangle {
   // getter method returns the perimeter
   getPerimeter(): number {
     return Math.floor(this.perimeter)
+  }
+
+  // getter method returns the semiperimeter
+  getSemiperimeter(): number {
+    return Math.floor(this.semiperimeter)
   }
 
   // getter method returns the area

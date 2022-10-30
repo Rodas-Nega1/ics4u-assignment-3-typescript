@@ -36,6 +36,9 @@ try {
     userTriangle.trianglePerimeter(sideA, sideB, sideC)
     console.log(`\nThe perimeter is ${userTriangle.getPerimeter()} cm.`)
 
+    userTriangle.triangleSemiperimeter(sideA, sideB, sideC)
+    console.log(`\nThe semiperimeter is ${userTriangle.getSemiperimeter()} cm.`)
+
     userTriangle.triangleArea(sideA, sideB, sideC)
     console.log(`\nThe area is ${userTriangle.getArea()} cm².`)
 
