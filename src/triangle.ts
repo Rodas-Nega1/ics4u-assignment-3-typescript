@@ -11,21 +11,6 @@ class Triangle {
   private readonly sideA: number
   private readonly sideB: number
   private readonly sideC: number
-  private triangleCheck = ' '
-  private angleA = 0
-  private angleB = 0
-  private angleC = 0
-  private perimeter = 0
-  private semiperimeter = 0
-  private area = 0
-  private heightA = 0
-  private heightB = 0
-  private heightC = 0
-  private inradius = 0
-  private circumradius = 0
-  private circleArea = 0
-  private readonly pi = 3.14
-  private readonly degree = 180
 
   constructor(sideA: number, sideB: number, sideC: number) {
     this.sideA = sideA
@@ -34,132 +19,170 @@ class Triangle {
   }
 
   // method that checks if lengths can make a certain type of triangle
-  validTriangle(sideA: number, sideB: number, sideC: number): string {
-    if (sideA === sideB && sideB === sideC && sideA === sideC) {
-      return (this.triangleCheck = 'This is an equilateral triangle.')
-    } else if (sideA === sideB || sideB === sideC || sideA === sideC) {
-      return (this.triangleCheck = 'This is an isosceles triangle.')
+  validTriangle(): string {
+    let triangleCheck = " "
+    if (this.sideA === this.sideB && this.sideB === this.sideC && this.sideA === this.sideC) {
+      return (triangleCheck = 'This is an equilateral triangle.')
+    } else if (this.sideA === this.sideB || this.sideB === this.sideC || this.sideA === this.sideC) {
+      return (triangleCheck = 'This is an isosceles triangle.')
     } else if (
-      sideA ** 2 + sideB ** 2 === sideC ** 2 ||
-      sideC ** 2 + sideA ** 2 === sideB ** 2 ||
-      sideC ** 2 + sideB ** 2 === sideA ** 2
+      this.sideA ** 2 + this.sideB ** 2 === this.sideC ** 2 ||
+      this.sideC ** 2 - this.sideA ** 2 === this.sideB ** 2 ||
+      this.sideC ** 2 - this.sideB ** 2 === this.sideA ** 2
     ) {
-      return (this.triangleCheck = 'This is a right angle triangle.')
+      return (triangleCheck = 'This is a right angle triangle.')
     } else {
-      return (this.triangleCheck = 'This is a scalene triangle.')
+      return (triangleCheck = 'This is a scalene triangle.')
     }
   }
 
   // setter method for perimeter
-  trianglePerimeter(sideA: number, sideB: number, sideC: number): void {
-    this.perimeter = sideA + sideB + sideC
+  trianglePerimeter(): number {
+    let perimeter = 0
+    return perimeter = this.sideA + this.sideB + this.sideC
   }
 
   // setter method for semiperimeter
-  triangleSemiperimeter(sideA: number, sideB: number, sideC: number): void {
-    this.semiperimeter = (sideA + sideB + sideC) / 2
+  triangleSemiperimeter(): number {
+    let semiperimeter = 0
+    return semiperimeter = (this.sideA + this.sideB + this.sideC) / 2
   }
 
   // setter method for triangle area using Heron's formula
-  triangleArea(sideA: number, sideB: number, sideC: number): void {
-    this.area = Math.sqrt(
-      this.semiperimeter *
-        (this.semiperimeter - sideA) *
-        (this.semiperimeter - sideB) *
-        (this.semiperimeter - sideC)
+  triangleArea(): number {
+    let area = 0
+    return area = Math.sqrt(
+      this.triangleSemiperimeter() *
+        (this.triangleSemiperimeter() - this.sideA) *
+        (this.triangleSemiperimeter() - this.sideB) *
+        (this.triangleSemiperimeter() - this.sideC)
     )
   }
 
-  // setter method for angles using rearranged cosine law
-  triangleAngles(sideA: number, sideB: number, sideC: number): void {
-    this.angleA =
-      Math.acos((sideB ** 2 + sideC ** 2 - sideA ** 2) / (2 * sideB * sideC)) *
-      (this.degree / this.pi)
-    this.angleB =
-      Math.acos((sideA ** 2 + sideC ** 2 - sideB ** 2) / (2 * sideA * sideC)) *
-      (this.degree / this.pi)
-    this.angleC =
-      Math.acos((sideA ** 2 + sideB ** 2 - sideC ** 2) / (2 * sideA * sideB)) *
-      (this.degree / this.pi)
+  // setter method for angle B using rearranged cosine law
+  angleA(): number {
+      let angleA = 0 
+      let pi = 3.14
+      let degree = 180
+    return angleA =
+      Math.acos((this.sideB ** 2 + this.sideC ** 2 - this.sideA ** 2) / (2 * this.sideB * this.sideC)) *
+      (degree / pi)
+  } 
+
+  // setter method for angle B using rearranged cosine law
+  angleB(): number {
+    let angleB = 0 
+    let pi = 3.14
+    let degree = 180
+
+    return angleB =
+      Math.acos((this.sideA ** 2 + this.sideC ** 2 - this.sideB ** 2) / (2 * this.sideA * this.sideC)) *
+      (degree / pi)
+  } 
+
+  // setter method for angle C using rearranged cosine law
+  angleC(): number {
+    let angleC = 0 
+    let pi = 3.14 
+    let degree = 180
+
+    return angleC =
+      Math.acos((this.sideA ** 2 + this.sideB ** 2 - this.sideC ** 2) / (2 * this.sideA * this.sideB)) *
+      (degree / pi)
   }
 
-  // setter method to find heights
-  triangleHeights(sideA: number, sideB: number, sideC: number): void {
-    this.heightA = (2 * this.area) / sideA
-    this.heightB = (2 * this.area) / sideB
-    this.heightC = (2 * this.area) / sideC
+  // setter method to find height A
+  heightA(): number {
+    let heightA = 0 
+    return heightA = (2 * this.triangleArea()) / this.sideA
+  }
+
+  // setter method to find height B
+  heightB(): number {
+    let heightB = 0 
+    return heightB = (2 * this.triangleArea()) / this.sideB
+  }
+
+  // setter method to find height C
+  heightC(): number {
+    let heightC = 0 
+    return heightC = (2 * this.triangleArea()) / this.sideC
   }
 
   // setter method to calculate radius of incircle of a triangle
-  incircleRadius(): void {
-    this.inradius = this.area / this.semiperimeter
+  incircleRadius(): number {
+    let inradius = 0
+    return inradius = this.triangleArea() / this.triangleSemiperimeter()
   }
 
   // setter method for circumcircle area of triangle
-  circumcircleArea(sideA: number, sideB: number, sideC: number): void {
-    this.circumradius =
-      (sideA * sideB * sideC) / (4 * this.inradius * this.semiperimeter)
-    this.circleArea = this.pi * this.circumradius ** 2
+  circumcircleArea(): number {
+    let circumradius = 0 
+    let circleArea = 0 
+    let pi = 3.14
+    circumradius =
+      (this.sideA * this.sideB * this.sideC) / (4 * this.incircleRadius() * this.triangleSemiperimeter())
+    return circleArea = pi * circumradius ** 2
   }
 
   // getter method returns the type of triangle
   getTriangleType(): string {
-    return this.triangleCheck
+    return this.validTriangle()
   }
 
   // getter method returns the perimeter
   getPerimeter(): number {
-    return Math.floor(this.perimeter)
+    return Math.floor(this.trianglePerimeter())
   }
 
   // getter method returns the semiperimeter
   getSemiperimeter(): number {
-    return Math.floor(this.semiperimeter)
+    return Math.floor(this.triangleSemiperimeter())
   }
 
   // getter method returns the area
   getArea(): number {
-    return Math.floor(this.area)
+    return Math.floor(this.triangleArea())
   }
 
-  // return angle A
+  // return angle A of the triangle
   getAngleA(): number {
-    return Math.floor(this.angleA)
+    return Math.floor(this.angleA())
   }
 
-  // return angle B
+  // return angle B of the triangle
   getAngleB(): number {
-    return Math.floor(this.angleB)
+    return Math.floor(this.angleB())
   }
 
-  // return angle C
+  // return angle C of the triangle
   getAngleC(): number {
-    return Math.floor(this.angleC)
+    return Math.floor(this.angleC())
   }
 
-  // return height A
+  // return height A of the triangle
   getHeightA(): number {
-    return Math.floor(this.heightA)
+    return Math.floor(this.heightA())
   }
 
-  // return height B
+  // return height B of the triangle
   getHeightB(): number {
-    return Math.floor(this.heightB)
+    return Math.floor(this.heightB())
   }
 
-  // return height C
+  // return height C of the triangle
   getHeightC(): number {
-    return Math.floor(this.heightC)
+    return Math.floor(this.heightC())
   }
 
   // return radius of incircle of triangle
   getInradius(): number {
-    return Math.floor(this.inradius)
+    return Math.floor(this.incircleRadius())
   }
 
   // return circumcircle area of triangle
   getCircumcircleArea(): number {
-    return Math.floor(this.circleArea)
+    return Math.floor(this.circumcircleArea())
   }
 }
 

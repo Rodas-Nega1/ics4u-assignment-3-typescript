@@ -30,40 +30,40 @@ try {
   } else {
     const userTriangle = new Triangle(sideA, sideB, sideC)
 
-    userTriangle.validTriangle(sideA, sideB, sideC)
+    userTriangle.validTriangle()
     console.log(`\n${userTriangle.getTriangleType()}`)
 
-    userTriangle.trianglePerimeter(sideA, sideB, sideC)
+    userTriangle.trianglePerimeter()
     console.log(`\nThe perimeter is ${userTriangle.getPerimeter()} cm.`)
 
-    userTriangle.triangleSemiperimeter(sideA, sideB, sideC)
+    userTriangle.triangleSemiperimeter()
     console.log(`\nThe semiperimeter is ${userTriangle.getSemiperimeter()} cm.`)
 
-    userTriangle.triangleArea(sideA, sideB, sideC)
+    userTriangle.triangleArea()
     console.log(`\nThe area is ${userTriangle.getArea()} cm².`)
 
-    userTriangle.triangleAngles(sideA, sideB, sideC)
+    userTriangle.angleA()
     console.log(`\nAngle A is ${userTriangle.getAngleA()}°.`)
 
-    userTriangle.triangleAngles(sideA, sideB, sideC)
+    userTriangle.angleB()
     console.log(`\nAngle B is ${userTriangle.getAngleB()}°.`)
 
-    userTriangle.triangleAngles(sideA, sideB, sideC)
+    userTriangle.angleC()
     console.log(`\nAngle C is ${userTriangle.getAngleC()}°.`)
 
-    userTriangle.triangleHeights(sideA, sideB, sideC)
-    console.log(`\nHeight A is ${userTriangle.getHeightA()} cm.`)
+    userTriangle.heightA()
+    console.log(`\nHeight A, B, and C are ${userTriangle.getHeightA()} cm.`)
 
-    userTriangle.triangleHeights(sideA, sideB, sideC)
-    console.log(`\nHeight B is ${userTriangle.getHeightB()} cm.`)
+    userTriangle.heightB()
+    console.log(`\nHeight A, B, and C are ${userTriangle.getHeightB()} cm.`)
 
-    userTriangle.triangleHeights(sideA, sideB, sideC)
-    console.log(`\nHeight C is ${userTriangle.getHeightC()} cm.`)
+    userTriangle.heightC()
+    console.log(`\nHeight A, B, and C are ${userTriangle.getHeightC()} cm.`)
 
     userTriangle.incircleRadius()
     console.log(`\nThe incircle radius is ${userTriangle.getInradius()} cm.`)
 
-    userTriangle.circumcircleArea(sideA, sideB, sideC)
+    userTriangle.circumcircleArea()
     console.log(
       `\nThe circumcircle area is ${userTriangle.getCircumcircleArea()} cm².`
     )
